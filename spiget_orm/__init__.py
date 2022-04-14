@@ -13,6 +13,7 @@ class SpigetAPI:
         status: API section with name ``status``.
         webhook: API section with name ``webhook``.
     """
+
     def __init__(self):
         """__init__ method."""
         self.authors = authors
