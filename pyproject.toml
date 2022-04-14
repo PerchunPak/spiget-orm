@@ -47,7 +47,6 @@ safety = "^1.10"
 pytest = "^7.1"
 pytest-cov = "^3.0"
 pytest-randomly = "^3.11"
-pytest-django = "^4.5"
 
 [tool.poetry.extras]
 docs = ["sphinx", "sphinx-autodoc-typehints", "sphinxcontrib-apidoc", "furo", "m2r2", "tomlkit", "toml"]
