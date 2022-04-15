@@ -19,7 +19,7 @@ repository = "https://github.com/PerchunPak/spiget-orm"
 python = "^3.8"
 
 # Our dependecies
-
+requests = ">=2.13"
 
 # Docs
 sphinx                   = { version = "^4.5",  optional = true }
