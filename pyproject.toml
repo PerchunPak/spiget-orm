@@ -20,6 +20,7 @@ python = "^3.8"
 
 # Our dependecies
 requests = ">=2.13"
+dataclasses-json = "^0.5"
 
 # Docs
 sphinx                   = { version = "^4.5",  optional = true }
