@@ -16,9 +16,9 @@ class SpigetAPI:
 
     def __init__(self):
         """__init__ method."""
-        self.authors = authors
-        self.categories = categories
-        self.resources = resources
-        self.search = search
-        self.status = status
-        self.webhook = webhook
+        self.authors = authors.SpigetAuthorsSection
+        self.categories = categories.SpigetCategoriesSection
+        self.resources = resources.SpigetResourcesSection
+        self.search = search.SpigetSearchSection
+        self.status = status.SpigetStatusSection
+        self.webhook = webhook.SpigetWebhookSection
