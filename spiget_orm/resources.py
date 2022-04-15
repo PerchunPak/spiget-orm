@@ -20,4 +20,4 @@ class SpigetResourcesSection:
             ``Resource`` model.
         """
         raw_answer = _raw_api_answer(self.prefix_url + str(resource_id))
-        return Resource.from_json(raw_answer.json())
+        return Resource.from_dict(raw_answer.json())

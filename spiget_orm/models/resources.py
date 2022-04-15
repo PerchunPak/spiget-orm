@@ -1,13 +1,18 @@
 """Models for section with name Recources."""
 from base64 import b64decode
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, List, Literal, Optional
 
-from dataclasses_json import DataClassJsonMixin, LetterCase, dataclass_json
+from dataclasses_json import (
+    DataClassJsonMixin,
+    LetterCase,
+    config,
+    dataclass_json,
+)
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class ResourceFile(DataClassJsonMixin):
     """File model for some fields."""
 
@@ -20,11 +25,11 @@ class ResourceFile(DataClassJsonMixin):
     #: Relative URL to the file.
     url: str
     #: URL of external downloads.
-    external_url: str
+    external_url: Optional[str] = None
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class ResourceRating(DataClassJsonMixin):
     """Rating model for some fields."""
 
@@ -34,8 +39,8 @@ class ResourceRating(DataClassJsonMixin):
     average: float
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class Icon(DataClassJsonMixin):
     """Icon model for some fields."""
 
@@ -43,10 +48,14 @@ class Icon(DataClassJsonMixin):
     url: str
     #: Base64-Encoded image data.
     data: str
+    #: Uknown parametr returned from Spiget.
+    info: str
+    #: Uknown parametr returned from Spiget.
+    hash: str
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class IdReference(DataClassJsonMixin):
     """Id-Reference to another object."""
 
@@ -56,8 +65,8 @@ class IdReference(DataClassJsonMixin):
     uuid: Optional[str] = None
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class Base64Encoded(DataClassJsonMixin):
     """Base64 encoded text model. Use ``.decode()`` to get original text."""
 
@@ -73,8 +82,8 @@ class Base64Encoded(DataClassJsonMixin):
         return b64decode(self.text.encode("utf-8")).decode("utf-8")
 
 
-@dataclass
 @dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
 class Resource(DataClassJsonMixin):
     """Resource model. Almost same with version in docs."""
 
@@ -109,9 +118,21 @@ class Resource(DataClassJsonMixin):
     #: Whether the resource is a premium resource.
     premium: bool
     #: Base64-encoded description HTML. Use ``.decode()`` to decode.
-    description: Base64Encoded
+    description: Optional[Base64Encoded] = field(
+        default=None,
+        metadata=config(
+            encoder=Base64Encoded,
+            decoder=Base64Encoded,
+        ),
+    )
     #: Base64-encoded documentation HTML (from the Documentation tab). Use ``.decode()`` to decode.
-    documentation: Base64Encoded
+    documentation: Optional[Base64Encoded] = field(
+        default=None,
+        metadata=config(
+            encoder=Base64Encoded,
+            decoder=Base64Encoded,
+        ),
+    )
     #: Price of the resource (only if the resource is premium).
     price: Optional[int] = None
     #: Price Currency of the resource (only if the resource is premium).
