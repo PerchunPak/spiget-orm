@@ -57,7 +57,7 @@ Currently in work!
 
 ## Thanks
 
-This project was generated with [`autodonate-plugin-template`](https://github.com/fire-squad/autodonate-plugin-template). 
-Current template version is: [e9d27be355e9d455a091356ebb8b42331d8b988f](https://github.com/fire-squad/autodonate-plugin-template/tree/e9d27be355e9d455a091356ebb8b42331d8b988f). 
-See what is [updated](https://github.com/fire-squad/autodonate-plugin-template/compare/e9d27be355e9d455a091356ebb8b42331d8b988f...master) 
+This project was generated with [`fire-square-style`](https://github.com/fire-square/fire-square-style). 
+Current template version is: [ff1d39cd7761f748d90b9c07bc280b5ee03dc5ba](https://github.com/fire-square/fire-square-style/tree/ff1d39cd7761f748d90b9c07bc280b5ee03dc5ba). 
+See what is [updated](https://github.com/fire-square/fire-square-style/compare/ff1d39cd7761f748d90b9c07bc280b5ee03dc5ba...master) 
 since then.
