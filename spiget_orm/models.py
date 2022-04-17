@@ -1,7 +1,7 @@
 """All models for Spiget API, taken from documentation."""
 from base64 import b64decode
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from dataclasses_json import (
     DataClassJsonMixin,
@@ -33,6 +33,8 @@ class Base64Encoded(Model):
 
 
 class Icon(Model):
+    """Model for Resource Icon or Author Avatar."""
+
     #: Relative URL to the image.
     url: Optional[str] = None
     #: Base64-Encoded image data.
@@ -46,16 +48,22 @@ class Icon(Model):
 
 
 class IdReference(Model):
+    """Id-Reference to another object."""
+
     #: ID of the Another Object.
     id: Optional[int] = None
 
 
 class IdAndUUIDReference(IdReference):
+    """ID and UUID Reference to another object."""
+
     #: UUID of the Another Object.
     uuid: Optional[str] = None
 
 
 class Category(Model):
+    """Model for a Category."""
+
     #: Category ID.
     id: Optional[int] = None
     #: Category name.
@@ -63,14 +71,19 @@ class Category(Model):
 
 
 class Author(Model):
+    """Model for an Author."""
+
     #: ID of the author.
     id: Optional[int] = None
     #: Author name.
     name: Optional[str] = None
+    #: Author Avatar.
     icon: Optional[Icon] = None
 
 
 class ResourceRating(Model):
+    """Model for a Resource Rating."""
+
     #: Number of ratings.
     count: Optional[int] = None
     #: Average rating.
@@ -78,6 +91,8 @@ class ResourceRating(Model):
 
 
 class ResourceReview(Model):
+    """Model for a Resource Review."""
+
     author: Optional[Author] = None
     rating: Optional[ResourceRating] = None
     #: Base64-Encoded Review message.
@@ -103,6 +118,8 @@ class ResourceReview(Model):
 
 
 class ResourceUpdate(Model):
+    """Model for a Resource Update."""
+
     #: Update ID.
     id: Optional[int] = None
     #: Update title.
@@ -122,6 +139,8 @@ class ResourceUpdate(Model):
 
 
 class ResourceVersion(Model):
+    """Model for a Resource Version."""
+
     #: Version ID.
     id: Optional[int] = None
     #: Version UUID.
@@ -136,6 +155,8 @@ class ResourceVersion(Model):
 
 
 class ResourceFile(Model):
+    """Model of a Resource File."""
+
     #: File extension.
     type: Optional[Literal["jar", "zip", "sk", "external"]] = None
     #: File size.
@@ -149,6 +170,8 @@ class ResourceFile(Model):
 
 
 class Resource(Model):
+    """Main Resource model."""
+
     #: ID of the Resource.
     id: Optional[int] = None
     #: Name of the Resource.
