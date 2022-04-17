@@ -46,10 +46,12 @@ class Icon(Model):
 
 
 class IdReference(Model):
+    #: ID of the Another Object.
     id: Optional[int] = None
 
 
 class IdAndUUIDReference(IdReference):
+    #: UUID of the Another Object.
     uuid: Optional[str] = None
 
 
@@ -153,11 +155,12 @@ class Resource(Model):
     name: Optional[str] = None
     #: Tag line of the Resource.
     tag: Optional[str] = None
-    #: Contributors.
+    #: Contributors of the Resource.
     contributors: Optional[str] = None
     #: Number of likes.
     likes: Optional[int] = None
     file: Optional[ResourceFile] = None
+    #: List with Tested Versions of the Resource.
     tested_versions: Optional[List[str]] = None
     #: Map of external and custom links in the resource description.
     links: Optional[Dict[str, Any]] = None
@@ -202,5 +205,7 @@ class Resource(Model):
             decoder=Base64Encoded,
         ),
     )
+    #: Source Code link of the Resource.
     source_code_link: Optional[str] = None
+    #: Donation link of the Resource.
     donation_link: Optional[str] = None
