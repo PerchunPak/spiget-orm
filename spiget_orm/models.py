@@ -45,6 +45,10 @@ class Icon(Model):
             decoder=Base64Encoded,
         ),
     )
+    #: Unknown field.
+    info: Optional[int] = None
+    #: Unknown field. Always empty.
+    hash: Optional[str] = None
 
 
 class IdReference(Model):
@@ -93,7 +97,9 @@ class ResourceRating(Model):
 class ResourceReview(Model):
     """Model for a Resource Review."""
 
+    #: Author of the review.
     author: Optional[Author] = None
+    #: Rating from review.
     rating: Optional[ResourceRating] = None
     #: Base64-Encoded Review message.
     message: Optional[Base64Encoded] = field(
@@ -122,6 +128,8 @@ class ResourceUpdate(Model):
 
     #: Update ID.
     id: Optional[int] = None
+    #: Resource ID.
+    resource: Optional[int] = None
     #: Update title.
     title: Optional[str] = None
     #: Base64-Encoded description of the update.
@@ -232,3 +240,36 @@ class Resource(Model):
     source_code_link: Optional[str] = None
     #: Donation link of the Resource.
     donation_link: Optional[str] = None
+
+
+class ResourceForVersion(Model):
+    """Model for a Resource For Version."""
+
+    #: ID of the Resource.
+    id: Optional[IdReference] = None
+    #: Name of the Resource.
+    name: Optional[str] = None
+    #: List with Tested Versions of the Resource.
+    tested_versions: Optional[List[str]] = None
+
+
+class ResourceAuthorFetch(Model):
+    """Model for unknown field Resource Author Fetch."""
+
+    latest: Optional[int] = None
+    rest_latest: Optional[int] = None
+
+
+class ResourceAuthor(Model):
+    """Model for a Resource Author."""
+
+    #: ID of the author.
+    id: Optional[IdReference] = None
+    #: Author name.
+    name: Optional[str] = None
+    #: Author avatar.
+    icon: Optional[Icon] = None
+    #: Unknown field.
+    fetch: Optional[ResourceAuthorFetch] = None
+    #: Unknown field.
+    should_delete: Optional[bool] = None
