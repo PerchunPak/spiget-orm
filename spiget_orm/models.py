@@ -1,13 +1,13 @@
 """All models for Spiget API, taken from documentation."""
 from base64 import b64decode
 from dataclasses import dataclass, field
-from typing import Dict, List, Literal, Optional, Any
+from typing import Any, Dict, List, Literal, Optional
 
 from dataclasses_json import (
     DataClassJsonMixin,
     LetterCase,
     config,
-    dataclass_json
+    dataclass_json,
 )
 
 
@@ -137,7 +137,7 @@ class ResourceVersion(Model):
 
 class ResourceFile(Model):
     #: File extension.
-    type: Optional[str] = Literal["jar", "zip", "sk", "external"]
+    type: Optional[Literal["jar", "zip", "sk", "external"]] = None
     #: File size.
     size: Optional[float] = None
     #: File size-unit (KB, MB, GB).
@@ -163,7 +163,7 @@ class Resource(Model):
     #: List with Tested Versions of the Resource.
     tested_versions: Optional[List[str]] = None
     #: Map of external and custom links in the resource description.
-    links: Optional[Dict[str, Any]] = None
+    links: Optional[Dict[str, str]] = None
     rating: Optional[ResourceRating] = None
     #: Release timestamp.
     release_date: Optional[int] = None
