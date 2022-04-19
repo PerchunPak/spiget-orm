@@ -74,6 +74,33 @@ class Category(Model):
     name: Optional[str] = None
 
 
+class AuthorIdentities(Model):
+    """Author nicknames in another social networks. Get direct from Spigot profile."""
+
+    #: Outdated messanger.
+    aim: Optional[str] = None
+    #: Discord of the Author.
+    discord: Optional[str] = None
+    #: Facebook of the Author.
+    facebook: Optional[str] = None
+    #: GitHub of the Author.
+    github: Optional[str] = None
+    #: Outdated messanger.
+    gtalk: Optional[str] = None
+    #: Outdated messanger.
+    icq: Optional[str] = None
+    #: Outdated messanger.
+    msn: Optional[str] = None
+    #: Skype of the Author.
+    skype: Optional[str] = None
+    #: Twitter of the Author.
+    twitter: Optional[str] = None
+    #: Outdated messanger.
+    yahoo: Optional[str] = None
+    #: YouTube of the Author.
+    youtube: Optional[str] = None
+
+
 class Author(Model):
     """Model for an Author."""
 
@@ -83,6 +110,8 @@ class Author(Model):
     name: Optional[str] = None
     #: Author Avatar.
     icon: Optional[Icon] = None
+    #: Author nicknames in another social networks.
+    identities: AuthorIdentities = AuthorIdentities()
 
 
 class ResourceRating(Model):
@@ -98,7 +127,7 @@ class ResourceReview(Model):
     """Model for a Resource Review."""
 
     #: Author of the review.
-    author: Optional[Author] = None
+    author: Optional[IdReference] = None
     #: Rating from review.
     rating: Optional[ResourceRating] = None
     #: Base64-Encoded Review message.
