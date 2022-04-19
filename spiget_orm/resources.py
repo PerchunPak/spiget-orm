@@ -191,7 +191,7 @@ class SpigetResourcesSection:
         Returns:
             ``requests.models.Response`` model.
         """
-        return _raw_api_answer(self.prefix_url + str(resource) + "/download", allow_redirects=True)
+        return _raw_api_answer(self.prefix_url + str(resource) + "download", allow_redirects=True)
 
     def resource_reviews(
         self,
