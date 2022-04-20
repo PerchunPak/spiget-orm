@@ -14,12 +14,7 @@ style:
 
 .PHONY: unit
 unit:
-# This will run pycln if not in CI
-ifeq ($(CI),)
 	poetry run pytest
-else
-	poetry run pytest --no-testmon
-endif
 
 .PHONY: package
 package:
