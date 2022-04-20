@@ -58,6 +58,6 @@ Currently in work!
 ## Thanks
 
 This project was generated with [`fire-square-style`](https://github.com/fire-square/fire-square-style). 
-Current template version is: [27aaed6ac7bbcc023c90c65c15c335d1b6609700](https://github.com/fire-square/fire-square-style/tree/27aaed6ac7bbcc023c90c65c15c335d1b6609700). 
-See what is [updated](https://github.com/fire-square/fire-square-style/compare/27aaed6ac7bbcc023c90c65c15c335d1b6609700...master) 
+Current template version is: [3f9499da850cfb73e5c6d9adbaaa47afac76e68a](https://github.com/fire-square/fire-square-style/tree/3f9499da850cfb73e5c6d9adbaaa47afac76e68a). 
+See what is [updated](https://github.com/fire-square/fire-square-style/compare/3f9499da850cfb73e5c6d9adbaaa47afac76e68a...master) 
 since then.
