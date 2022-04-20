@@ -7,7 +7,10 @@ lint: style
 style:
 	poetry run black .
 	poetry run isort .
+# This will run pycln if not in CI
+ifeq ($(CI),)
 	poetry run pycln .
+endif
 	poetry run mypy --install-types --non-interactive spiget_orm tests
 	poetry run flake8 .
 	poetry run doc8 -q docs
